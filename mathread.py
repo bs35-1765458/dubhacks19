@@ -35,7 +35,7 @@ def detectText(url):
 	        ),
 	        ignore_index=True
 	    )
-	return df['description'][0]
+	return (df['description'][0]).replace("-","minus")
 	#return df
 
 #print text
@@ -147,7 +147,7 @@ def run_quickstart(url):
 
     # The response's audio_content is binary.
 
-    with open('output.mp3', 'wb') as out:
+    with open('output1.mp3', 'wb') as out:
 
         # Write the response to the output file.
 
@@ -155,8 +155,10 @@ def run_quickstart(url):
 
         print('Audio content written to file "output.mp3"')
 
-    # [END tts_quickstart]
 
-run_quickstart(curr_url)
+    # [END tts_quickstart]
+    return None
+
+# run_quickstart(curr_url)
 
  
