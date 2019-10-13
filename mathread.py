@@ -7,22 +7,21 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r"math-read-3d2556162d8a.json"
 
 client = vision.ImageAnnotatorClient()
 
-file_name = 'img8.jpg'
-image_path = f'/Users/butterchicken/desktop/dubhacks19/images' 
+# file_name = 'img8.jpg'
+# image_path = f'/Users/butterchicken/desktop/dubhacks19/images' 
+# curr_url = 'https://www.wikihow.com/images/thumb/3/3d/Solve-Two-Step-Algebraic-Equations-Step-1-Version-3.jpg/aid17666-v4-728px-Solve-Two-Step-Algebraic-Equations-Step-1-Version-3.jpg'
 
-def detectText(img):
-	with io.open(img, 'rb') as image_file:
-	    content = image_file.read()
+def detectText(url):
+	# with io.open(img, 'rb') as image_file:
+	#     content = image_file.read()
 
-	# construct an iamge instance
-	image = vision.types.Image(content=content)
+	# # construct an iamge instance
+	# img = vision.types.Image(content=content)
 
-	"""
 	# or we can pass the image url
+	img_url = url
 	image = vision.types.Image()
-	image.source.image_uri = 'https://edu.pngfacts.com/uploads/1/1/3/2/11320972/grade-10-english_orig.png'
-	"""
-
+	image.source.image_uri = img_url
 	# annotate Image Response
 	response = client.text_detection(image=image)  # returns TextAnnotation
 	df = pd.DataFrame(columns=['locale', 'description'])
@@ -40,7 +39,7 @@ def detectText(img):
 	#return df
 
 #print text
-#print(detectText(os.path.join(image_path, file_name)))
+#print(detectText(curr_url))
 
 
 
@@ -90,7 +89,7 @@ Example usage:
 
 
 
-def run_quickstart():
+def run_quickstart(url):
 
     # [START tts_quickstart]
 
@@ -114,7 +113,7 @@ def run_quickstart():
 
     # Set the text input to be synthesized
 
-    synthesis_input = texttospeech.types.SynthesisInput(text=detectText(os.path.join(image_path, file_name)))
+    synthesis_input = texttospeech.types.SynthesisInput(text=detectText(url))
 
 
 
@@ -158,6 +157,6 @@ def run_quickstart():
 
     # [END tts_quickstart]
 
-run_quickstart()
+run_quickstart(curr_url)
 
  
