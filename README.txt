@@ -1,1 +1,1 @@
-Check the image-text-speech brucnh for sctive submission
+Check the image-text-speech brunch for active submission
