@@ -3,7 +3,7 @@ from google.cloud import vision
 from google.cloud.vision import types
 import pandas as pd
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r"math-read-3d2556162d8a.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r"your-key"
 
 client = vision.ImageAnnotatorClient()
 
